@@ -23,6 +23,8 @@ class CitiesTableSeeder extends Seeder
         $city->name = $name;
         $city->description = $description;
         $city->location = new Point(49,51);
+        $city->enabled = true;
+        $city->slug = 'winnipeg';
         $city->save();
     }
 }

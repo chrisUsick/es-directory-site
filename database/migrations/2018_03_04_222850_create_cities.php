@@ -17,6 +17,8 @@ class CreateCities extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+            $table->string('slug');
+            $table->boolean('enabled');
             $table->point('location');
             $table->timestamps();
         });

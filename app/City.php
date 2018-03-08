@@ -10,7 +10,7 @@ class City extends Model
 {
     use PostgisTrait;
     protected $fillable = [
-        'name', 'description'
+        'name', 'description', 'slug', 'enabled'
     ];
     protected $postgisFields = [
         'location'

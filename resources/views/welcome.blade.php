@@ -1,26 +1,24 @@
 @extends('layouts.app')
 
-@section('title', 'Page Title')
-
-@section('sidebar')
-    @parent
-    <p>This is appended to the master sidebar.</p>
-@endsection
 @section('content')
-    <div class="content">
-        <div class="title m-b-md">
-            Laravel
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+        <h1 class="display-3">Escape Room World</h1>
+        <p>Welcome to the {{$global['title']}}! Check out the escape rooms in the cities below.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
         </div>
+    </div>
 
-        <div class="links">
-            <a href="https://laravel.com/docs">Documentation</a>
-            <a href="https://laracasts.com">Laracasts</a>
-            <a href="https://laravel-news.com">News</a>
-            <a href="https://forge.laravel.com">Forge</a>
-            <a href="https://github.com/laravel/laravel">GitHub</a>
-        </div>
-        <div class="alert alert-primary" role="alert">
-           This is a primary alert—check it out!
+    <div class="container">
+        <div class="content">
+            <ul>
+                @foreach ($cities as $city)
+                    <li>
+                        <a href="/{{$city->slug}}">{{ $city->name }}</a>
+                    </li>
+                @endforeach
+            </ul>
         </div>
     </div>
 

@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\City;
+use App\Company;
 use Phaza\LaravelPostgis\Geometries\Point;
 
 class CitiesTableSeeder extends Seeder
@@ -26,5 +27,12 @@ class CitiesTableSeeder extends Seeder
         $city->enabled = true;
         $city->slug = 'winnipeg';
         $city->save();
+
+        $company = new Company();
+        $company->name = "Engima Escapes";
+        $company->description = 'A live escape game.';
+        $company->image = 'http://www.enigmaescapes.com/images/compass-for-wall-u44410.png?crc=236295687';
+
+        $city->companies()->save($company);
     }
 }

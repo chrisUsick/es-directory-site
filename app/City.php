@@ -21,4 +21,9 @@ class City extends Model
             'srid' => 4326
         ]
     ];
+
+    public function companies() {
+        return $this->belongsToMany('App\Company')
+            ->withTimestamps();
+    }
 }

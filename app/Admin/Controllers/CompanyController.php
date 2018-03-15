@@ -74,6 +74,9 @@ class CompanyController extends Controller
         return Admin::grid(Company::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
+            $grid->column('name');
+            $grid->column('description');
+            $grid->column('image');
 
             $grid->created_at();
             $grid->updated_at();
@@ -91,6 +94,9 @@ class CompanyController extends Controller
 
             $form->display('id', 'ID');
 
+            $form->display('name', 'Name');
+            $form->display('description', 'Description');
+            $form->display('image', 'Image');
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });

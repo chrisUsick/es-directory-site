@@ -14,5 +14,6 @@ Route::group([
 
 
     $router->resource('/cities', CityController::class);
+    $router->resource('/companies', CompanyController::class);
 });
 

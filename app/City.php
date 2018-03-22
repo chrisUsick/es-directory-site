@@ -26,4 +26,8 @@ class City extends Model
         return $this->belongsToMany('App\Company')
             ->withTimestamps();
     }
+
+    public function rooms() {
+        return $this->hasMany('App\Room');
+    }
 }

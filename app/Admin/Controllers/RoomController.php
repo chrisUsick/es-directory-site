@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Company;
+use App\Room;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class CompanyController extends Controller
+class RoomController extends Controller
 {
     use ModelForm;
 
@@ -71,16 +71,10 @@ class CompanyController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Company::class, function (Grid $grid) {
+        return Admin::grid(Room::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->column('name');
-            $grid->column('description');
-            $grid->column('image');
-            $grid->rooms('# of Rooms')->display(function($rooms) {
-                $count = count($rooms);
-                return "<span class='label label-warning'>{$count}</span>";
-            });
+
             $grid->created_at();
             $grid->updated_at();
         });
@@ -93,13 +87,10 @@ class CompanyController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Company::class, function (Form $form) {
+        return Admin::form(Room::class, function (Form $form) {
 
             $form->display('id', 'ID');
 
-            $form->display('name', 'Name');
-            $form->display('description', 'Description');
-            $form->display('image', 'Image');
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });

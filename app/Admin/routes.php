@@ -14,7 +14,9 @@ Route::group([
 
 
     $router->resource('/cities', CityController::class);
+    $router->get('/api/cities', 'CityController@cities');
     $router->resource('/companies', CompanyController::class);
+    $router->get('/api/companies', 'CompanyController@companies');
     $router->resource('/rooms', RoomController::class);
 });
 

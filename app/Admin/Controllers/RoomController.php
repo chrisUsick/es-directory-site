@@ -3,6 +3,8 @@
 namespace App\Admin\Controllers;
 
 use App\Room;
+use App\City;
+use App\Company;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -74,6 +76,9 @@ class RoomController extends Controller
         return Admin::grid(Room::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
+            $grid->name()->sortable();
+            $grid->address();
+            $grid->difficulty();
 
             $grid->created_at();
             $grid->updated_at();
@@ -90,7 +95,26 @@ class RoomController extends Controller
         return Admin::form(Room::class, function (Form $form) {
 
             $form->display('id', 'ID');
-
+            $form->text('name');
+            $form->text('address');
+            $form->text('difficulty');
+            $form->textarea('description')->rows(4);
+            $form->text('image', 'Image');
+            $form->text('bookingLink', 'Booking Link');
+            $form->select('city_id', 'City')->options(function ($id) {
+                $city = City::find($id);
+            
+                if ($city) {
+                    return [$city->id => $city->name];
+                }
+            })->ajax('/admin/api/cities');
+            $form->select('company_id', 'Company')->options(function ($id) {
+                $company = Company::find($id);
+            
+                if ($company) {
+                    return [$company->id => $company->name];
+                }
+            })->ajax('/admin/api/companies');
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });

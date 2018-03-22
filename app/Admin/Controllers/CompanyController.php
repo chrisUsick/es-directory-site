@@ -10,6 +10,7 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use \Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
@@ -103,5 +104,12 @@ class CompanyController extends Controller
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });
+    }
+
+    protected function companies(Request $request)
+    {
+        $q = $request->get('q');
+    
+        return Company::where('name', 'ilike', "%$q%")->paginate(null, ['id', 'name as text']);
     }
 }

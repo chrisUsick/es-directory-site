@@ -33,6 +33,8 @@ class CitiesTableSeeder extends Seeder
         $company->name = "Engima Escapes";
         $company->description = 'A live escape game.';
         $company->image = 'http://www.enigmaescapes.com/images/compass-for-wall-u44410.png?crc=236295687';
+        $company->save();
+        $city->companies()->save($company);
 
         $room = new Room();
         $room->name = 'THE LOST JEWEL OF ZANZIBAR';
@@ -43,7 +45,6 @@ class CitiesTableSeeder extends Seeder
         $room->address = 'Unit 4 - 980 Lorimer Blvd.';
         $room->company()->associate($company);
         $room->city()->associate($city);
-        
-        $city->companies()->save($company);
+        $room->save();
     }
 }

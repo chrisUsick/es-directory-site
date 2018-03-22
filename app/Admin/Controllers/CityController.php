@@ -10,6 +10,7 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use \Illuminate\Http\Request;
 
 class CityController extends Controller
 {
@@ -98,5 +99,12 @@ class CityController extends Controller
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });
+    }
+
+    protected function cities(Request $request)
+    {
+        $q = $request->get('q');
+    
+        return City::where('name', 'ilike', "%$q%")->paginate(null, ['id', 'name as text']);
     }
 }

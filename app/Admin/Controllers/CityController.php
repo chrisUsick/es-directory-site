@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\City;
+use App\Company;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -25,8 +26,8 @@ class CityController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('Cities');
+            $content->description('Manage cities');
 
             $content->body($this->grid());
         });
@@ -78,6 +79,9 @@ class CityController extends Controller
             $grid->column('name');
             $grid->column('slug');
             $grid->column('description');
+            $grid->column('enabled')->display(function($val) {
+                return $val ? 'True' : 'False'; 
+            });
             $grid->created_at();
             $grid->updated_at();
         });
@@ -96,8 +100,8 @@ class CityController extends Controller
             $form->display('name', 'Name');
             $form->display('slug', 'Slug');
             $form->display('description', 'Description');
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->switch('enabled', 'Enabled')->options(['on' => ['value' => true, 'text' => 'Yes', 'color' => 'success'], 'off' => ['value' => false, 'text' => 'False']])->default(true);
+            $form->multipleSelect('companies', 'Companies')->options(Company::all()->pluck('name', 'id'));
         });
     }
 

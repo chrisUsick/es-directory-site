@@ -30,7 +30,7 @@
                 </ul>
             </div>
         </nav>
-        <main role="main">
+        <main role="main" id="app">
 
             @yield('content')
              <!-- /container -->
@@ -40,7 +40,6 @@
             <p>&copy; Company 2017-2018</p>
         </footer>
         
-
-        <script src="/js/app.js"type="text/javascript">
+        <script src="{{mix('/js/app.js')}}"type="text/javascript"></script>
     </body>
 </html>

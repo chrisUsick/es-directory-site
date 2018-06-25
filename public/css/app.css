@@ -10000,3 +10000,11 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.navbar-page-title {
+  color: #fff;
+}
+
+body {
+  padding-top: 4.5rem;
+}
+

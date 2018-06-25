@@ -16,19 +16,19 @@
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="/">{{ $global['title'] }}</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-                    </li>
-                </ul>
-            </div>
+        <nav id="main-nav" class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <ul class="nav navbar-nav pull-sm-left">
+                <li>
+                    <a class="navbar-brand" href="/">{{ $global['title'] }}</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav mx-auto">
+                <li>
+                    <h1 class="navbar-page-title" >
+                        @yield('page_title')
+                    </h1>
+                </li>
+            </ul>
         </nav>
         <main role="main" id="app">
 

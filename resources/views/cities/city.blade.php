@@ -22,7 +22,21 @@
             </div>
             <div class="tab-content" id="tab-content">
                 <div class="tab-pane fade show active" id="companies" role="tabpanel" aria-labelledby="companies-tab">
-                    <p>companies</p>
+                    <div class="container">
+                        @foreach ($companies as $company)
+                            <div class="row company-row">
+                                <div class="col-2">
+                                    <img src="{{$company->image}}" />
+                                </div>
+                                <div class="col-6">
+                                    <h3>{{$company->name}}</h3>
+                                    <p>{{$company->description}}</p>
+                                    <span>Number of rooms: {{$company->rooms_count}}</span>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    
                 </div>
                 <div class="tab-pane fade" id="rooms" role="tabpanel" aria-labelledby="rooms-tab">
                     <p>rooms</p>

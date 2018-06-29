@@ -21,3 +21,10 @@
 body {
   padding-top: 4.5rem;
 }
+
+.company-row {
+  border: 1px solid black;
+  img {
+    max-width: 150px;
+  }
+}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\City;
+use App\Company;
 
 class CityController extends BaseController
 {
@@ -9,7 +10,12 @@ class CityController extends BaseController
     {
         //All variable will be available in views
         $city = City::where('slug', $slug)->firstOrFail();
-        return view('cities.city', ['city' => $city]);
+        $companies = $city->companies()->withCount('rooms')->get();
+        foreach ($city->companies()->withCount('rooms') as $company) {
+            
+        }
+        
+        return view('cities.city', ['city' => $city, 'companies' => $companies]);
     }
 
 }

@@ -33,6 +33,7 @@ class CitiesTableSeeder extends Seeder
         $company->name = "Engima Escapes";
         $company->description = 'A live escape game.';
         $company->image = 'http://www.enigmaescapes.com/images/compass-for-wall-u44410.png?crc=236295687';
+        $company->slug = 'engima-escapes';
         $company->save();
         $city->companies()->save($company);
 

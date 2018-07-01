@@ -11,11 +11,13 @@ class CityController extends BaseController
         //All variable will be available in views
         $city = City::where('slug', $slug)->firstOrFail();
         $companies = $city->companies()->withCount('rooms')->get();
-        foreach ($city->companies()->withCount('rooms') as $company) {
-            
-        }
+        $rooms = $city->rooms;
         
-        return view('cities.city', ['city' => $city, 'companies' => $companies]);
+        return view('cities.city', [
+            'city' => $city, 
+            'companies' => $companies,
+            'rooms' => $rooms
+        ]);
     }
 
 }

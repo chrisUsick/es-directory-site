@@ -10008,11 +10008,12 @@ body {
   padding-top: 4.5rem;
 }
 
-.company-row {
+.item-row {
   border: 1px solid black;
+  padding-bottom: 10px;
 }
 
-.company-row img {
+.item-row img {
   max-width: 150px;
 }
 

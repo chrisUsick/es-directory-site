@@ -22,10 +22,10 @@ body {
   padding-top: 4.5rem;
 }
 
+img.thumbnail, .item-row img {
+  max-width: 150px;
+}
 .item-row {
   border: 1px solid black;
-  img {
-    max-width: 150px;
-  }
   padding-bottom: 10px;
 }

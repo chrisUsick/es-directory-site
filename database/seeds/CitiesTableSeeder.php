@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\City;
 use App\Company;
 use App\Room;
+use App\Promotion;
 use Phaza\LaravelPostgis\Geometries\Point;
 
 class CitiesTableSeeder extends Seeder
@@ -47,5 +48,12 @@ class CitiesTableSeeder extends Seeder
         $room->company()->associate($company);
         $room->city()->associate($city);
         $room->save();
+
+        $promotion = new Promotion();
+        $promotion->name = 'Enigma Escape: Sweet deal';
+        $promotion->description = 'Get 10% off you next visit';
+        $promotion->maxCodes = 30;
+        $promotion->begins = now();
+        $promotion->ends = now() + 30;
     }
 }

@@ -51,9 +51,13 @@ class CitiesTableSeeder extends Seeder
 
         $promotion = new Promotion();
         $promotion->name = 'Enigma Escape: Sweet deal';
+        $promotion->slug = 'enigma-escape-07-2018';
         $promotion->description = 'Get 10% off you next visit';
         $promotion->maxCodes = 30;
         $promotion->begins = now();
-        $promotion->ends = now() + 30;
+        $promotion->ends = now()->addDays(30);
+        $promotion->company()->associate($company);
+        $promotion->city()->associate($city);
+        $promotion->save();
     }
 }

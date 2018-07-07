@@ -14,3 +14,4 @@
 Route::get('/{city}', 'CityController@show');
 Route::get('/', 'HomeController@index');
 Route::get('/{city}/{company}', 'CompanyController@Show');
+Route::get('/promos/{city}/{promotion}', 'PromotionController@Show');

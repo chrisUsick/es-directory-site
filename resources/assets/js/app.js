@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('city-selector', require('./components/CitySelector.vue'));
+Vue.component('promo-code-generator', require('./components/PromoCodeGenerator.vue'));
 
 const app = new Vue({
     el: '#app'

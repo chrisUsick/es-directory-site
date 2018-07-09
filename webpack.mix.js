@@ -1,4 +1,6 @@
 let mix = require('laravel-mix');
+let parseEnv = require('./parse-env');
+let webpack = require('webpack');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,3 +15,9 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js').sourceMaps().version()
    .sass('resources/assets/sass/app.scss', 'public/css');
+
+mix.webpackConfig({
+    plugins: [
+        new webpack.DefinePlugin(parseEnv(path.resolve(__dirname, '.env')))
+    ]
+});

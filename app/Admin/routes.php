@@ -18,5 +18,6 @@ Route::group([
     $router->resource('/companies', CompanyController::class);
     $router->get('/api/companies', 'CompanyController@companies');
     $router->resource('/rooms', RoomController::class);
+    $router->get('/promocodes/validate/{promo_code_id}', 'PromoCodeController@Show');
 });
 
